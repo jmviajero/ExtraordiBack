@@ -36,9 +36,7 @@ export const Character = {
         const episodes = await Promise.all(
             parent.episode.map(async(e)=>{
                 const response = await fetch(e)
-                if (response.status !== 200) {
-                    throw new GraphQLError("Error en la llamada a API")
-                }
+                
                 const data: EspisodeAPI = await response.json()
                 return data
             })
